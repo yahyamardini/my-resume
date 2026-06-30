@@ -7,9 +7,7 @@ const Header = () => {
       <h1>Yahya Mardini</h1>
       <h2>DevOps Engineer</h2>
       <p>
-        DevOps Engineer with 1+ year of professional experience in the telecom industry and ~3 years of self-learning in computing.
-        My professional role involves automating repetitive tasks, optimizing deployments, building scalable infrastructure,
-        operations, and software development.
+        DevOps Engineer with 2+ years of professional experience and 4+ years of continuous self-learning in computers.
       </p>
       <div className="contact-info">
         <p>
@@ -37,7 +35,7 @@ const Header = () => {
           </a>{' '}
           |{' '}
           <a
-            href="https://github.com/gityahco"
+            href="https://github.com/yahyamardini"
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: 'none', color: 'inherit' }}

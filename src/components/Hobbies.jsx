@@ -5,11 +5,9 @@ const Hobbies = () => {
     <section className="hobbies">
       <h2>Hobbies</h2>
       <ul>
-        <li>Weight lifting</li>
-        <li>Arm wrestling</li>
-        <li>Grip strenght training</li>
-        <li>Learning English words</li>
-        <li>Typing Speed</li>
+        <li>Powerlifting</li>
+        <li>Language learning</li>
+        <li>Recently started learning cooking</li>
       </ul>
     </section>
   );

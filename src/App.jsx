@@ -6,7 +6,6 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import Skills from './components/Skills';
 import Hobbies from './components/Hobbies';
-import References from './components/References';
 import Languages from './components/Languages';
 import Footer from './components/Footer';
 import './styles/App.css';
@@ -33,7 +32,6 @@ function App() {
         <Education />
         <Skills />
         <Hobbies />
-        <References />
         <Languages />
         <Footer />
       </div>
