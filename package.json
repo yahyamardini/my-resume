@@ -11,7 +11,7 @@
     "deploy": "gh-pages -d dist",
     "build": "vite build"
   },
-  "homepage": "https://gityahco.github.io/my-resume",
+  "homepage": "https://yahyamardini.github.io/my-resume",
   "dependencies": {
     "html2pdf.js": "^0.10.3",
     "react": "^19.0.0",
