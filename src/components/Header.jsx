@@ -7,7 +7,7 @@ const Header = () => {
       <h1>Yahya Mardini</h1>
       <h2>DevOps Engineer</h2>
       <p>
-        DevOps Engineer with 2+ years of professional experience and 4+ years of continuous self-learning in computers.
+        DevOps Engineer with 2+ years of professional experience and ~4 years of continuous self-learning in computers.
       </p>
       <div className="contact-info">
         <p>
