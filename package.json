@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "build": "vite build"
+    "build": "vite build && node scripts/prerender.js"
   },
   "homepage": "https://yahyamardini.github.io/my-resume",
   "dependencies": {

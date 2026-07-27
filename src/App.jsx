@@ -1,5 +1,4 @@
 import React from 'react';
-import html2pdf from 'html2pdf.js';
 import { FaDownload } from 'react-icons/fa';
 import Header from './components/Header';
 import Experience from './components/Experience';
@@ -11,7 +10,10 @@ import Footer from './components/Footer';
 import './styles/App.css';
 
 function App() {
-  const handleDownloadPDF = () => {
+  // Imported on demand: html2pdf.js touches window/document at module scope,
+  // which breaks the prerender step in scripts/prerender.js.
+  const handleDownloadPDF = async () => {
+    const { default: html2pdf } = await import('html2pdf.js');
     const element = document.querySelector('.resume-container');
     const opt = {
       margin: 10,

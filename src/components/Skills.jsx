@@ -18,8 +18,8 @@ const Skills = () => {
         <li>System architecture design</li>
 
         <li>AI integration</li>
-        <div class="html2pdf__page-break"></div>
       </ul>
+      <div className="html2pdf__page-break"></div>
     </section>
   );
 };
