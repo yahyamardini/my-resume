@@ -8,40 +8,57 @@ const Experience = () => {
       {/* Professional Experience */}
       <div className="job">
         <h3>Cellusys — DevOps Engineer</h3>
-        <p className="date">March 2024 - PRESENT</p>
+        <p className="date">March 2024 – Present</p>
         <ul>
-          <li>Migrated infrastructure from an ad-hoc to a Docker Swarm deployment.</li>
+          <li>
+            Migrated legacy telecom systems to cloud-native solutions in multi-region
+            Kubernetes clusters.
+          </li>
 
-          <li>Co-operated production infrastructure.</li>
+          <li>
+            Designed and implemented a staging environment to test rollouts, making production
+            deployments safer.
+          </li>
 
-          <li>Designed a staging environment making deployment rollouts much safer.</li>
+          <li>Built a benchmarking environment to continuously test system performance.</li>
 
-          <li>Designed a benchmarking environment to continuously test system resilience.</li>
+          <li>
+            Architected CI/CD pipelines (GitLab CI/CD, Argo CD) that shortened the time from
+            commit to production.
+          </li>
 
-          <li>Maintained CI/CD pipelines.</li>
+          <li>
+            Introduced a development environment to unify dev workflows and reduce the time it
+            takes to onboard new engineers.
+          </li>
 
-          <li>Maintained the development environment.</li>
+          <li>
+            Integrated modern observability solutions (ELK stack, Prometheus, Grafana,
+            kube-state-metrics) to improve visibility into the system.
+          </li>
 
-          <li>Standardized configuration management for the core product.</li>
+          <li>
+            Evaluated production Kubernetes cluster robustness by simulating failure scenarios
+            to verify compliance with customer SLAs.
+          </li>
 
-          <li>Documented system architecture.</li>
-
-          <li>Integrated secret management via HashiCorp Vault.</li>
+          <li>
+            Adopted agentgateway to centralize interaction between AI agents and MCP servers.
+          </li>
         </ul>
       </div>
 
       {/* Self-Learning Period */}
       <div className="job">
         <h3>Self-Learning</h3>
-        <p className="date">August 2022 - PRESENT</p>
+        <p className="date">August 2022 – Present</p>
         <ul>
-          <li>Linux internals.</li>
+          <li>Linux internals</li>
 
-          <li>Network programming.</li>
+          <li>Computer architecture</li>
 
-          <li>Scalable infrastructure architecture &amp; design.</li>
+          <li>Global network infrastructure</li>
         </ul>
-        <div className="html2pdf__page-break"></div>
       </div>
     </section>
   );

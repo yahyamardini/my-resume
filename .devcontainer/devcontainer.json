@@ -1,0 +1,21 @@
+{
+  "name": "my-resume",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/code,type=bind",
+  "workspaceFolder": "/code",
+  "forwardPorts": [5173, 4173],
+  "postCreateCommand": "npm ci",
+  "mounts": [
+    "source=${localEnv:HOME}/.local/bin/claude,target=/usr/local/bin/claude,type=bind,readonly",
+    "source=${localEnv:HOME}/.claude,target=/home/node/.claude,type=bind",
+    "source=${localEnv:HOME}/.claude.json,target=/home/node/.claude.json,type=bind"
+  ],
+  "remoteEnv": {
+    "DISABLE_AUTOUPDATER": "1"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint", "mhutchie.git-graph"]
+    }
+  }
+}

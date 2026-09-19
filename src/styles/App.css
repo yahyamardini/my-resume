@@ -82,15 +82,6 @@ ul li {
   line-height: 1.5;
 }
 
-/* Footer Styles */
-.footer {
-  text-align: center;
-  margin-top: 20px;
-  padding-top: 10px;
-  border-top: 1px solid #ddd;
-  color: #777;
-}
-
 /* Contact Info Styles */
 .contact-info a {
   text-decoration: none;

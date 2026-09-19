@@ -2,11 +2,9 @@ import React from 'react';
 import { FaDownload } from 'react-icons/fa';
 import Header from './components/Header';
 import Experience from './components/Experience';
-import Education from './components/Education';
 import Skills from './components/Skills';
-import Hobbies from './components/Hobbies';
+import Programming from './components/Programming';
 import Languages from './components/Languages';
-import Footer from './components/Footer';
 import './styles/App.css';
 
 function App() {
@@ -31,11 +29,9 @@ function App() {
       <div className="resume-container">
         <Header />
         <Experience />
-        <Education />
         <Skills />
-        <Hobbies />
+        <Programming />
         <Languages />
-        <Footer />
       </div>
       <button onClick={handleDownloadPDF} className="download-btn">
         <FaDownload style={{ marginRight: '8px' }} /> Download PDF Resume

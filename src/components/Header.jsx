@@ -7,7 +7,10 @@ const Header = () => {
       <h1>Yahya Mardini</h1>
       <h2>DevOps Engineer</h2>
       <p>
-        DevOps Engineer with 2+ years of professional experience and ~4 years of continuous self-learning in computers.
+        DevOps engineer focused on reducing toil for development and operations engineers. I
+        implement industry best practices that align with business goals. I communicate
+        technical implementations to non-technical stakeholders and translate business needs
+        into architectural decisions.
       </p>
       <div className="contact-info">
         <p>
