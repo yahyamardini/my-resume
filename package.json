@@ -9,11 +9,11 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "build": "vite build && node scripts/prerender.js"
+    "build": "vite build && node scripts/prerender.js",
+    "pdf": "bash scripts/pdf.sh"
   },
   "homepage": "https://yahyamardini.github.io/my-resume",
   "dependencies": {
-    "html2pdf.js": "^0.10.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -27,7 +27,6 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "gh-pages": "^6.3.0",
     "globals": "^15.15.0",
-    "html2pdf": "^0.0.11",
     "react-icons": "^5.5.0",
     "vite": "^6.2.0"
   }

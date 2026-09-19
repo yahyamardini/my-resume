@@ -1,0 +1,47 @@
+{
+  "basics": {
+    "name": "Yahya Mardini",
+    "label": "DevOps Engineer",
+    "summary": "DevOps engineer focused on reducing toil for development and operations engineers. I implement industry best practices that align with business goals. I communicate technical implementations to non-technical stakeholders and translate business needs into architectural decisions.",
+    "email": "yahya199mar@gmail.com",
+    "phone": "+963 968 736 154",
+    "location": {
+      "city": "Damascus",
+      "region": "Syria"
+    },
+    "profiles": [
+      { "network": "GitHub", "url": "https://github.com/yahyamardini" },
+      { "network": "LinkedIn", "url": "https://linkedin.com/in/yahyamardini" }
+    ]
+  },
+  "work": [
+    {
+      "name": "Cellusys",
+      "position": "DevOps Engineer",
+      "startDate": "March 2024",
+      "endDate": "Present",
+      "highlights": [
+        "Migrated legacy telecom systems to cloud-native solutions in multi-region Kubernetes clusters.",
+        "Designed and implemented a staging environment to test rollouts, making production deployments safer.",
+        "Built a benchmarking environment to continuously test system performance.",
+        "Architected CI/CD pipelines (GitLab CI/CD, Argo CD) that shortened the time from commit to production.",
+        "Introduced a development environment to unify dev workflows and reduce the time it takes to onboard new engineers.",
+        "Integrated modern observability solutions (ELK stack, Prometheus, Grafana, kube-state-metrics) to improve visibility into the system.",
+        "Evaluated production Kubernetes cluster robustness by simulating failure scenarios to verify compliance with customer SLAs.",
+        "Adopted agentgateway to centralize interaction between AI agents and MCP servers."
+      ]
+    }
+  ],
+  "selfLearning": {
+    "label": "Self-Learning",
+    "startDate": "August 2022",
+    "endDate": "Present",
+    "topics": ["Linux internals", "Computer architecture", "Global network infrastructure"]
+  },
+  "skills": ["Linux", "Networking", "Kubernetes", "Observability", "CI/CD", "AI integration"],
+  "programmingLanguages": ["C", "Python", "Bash"],
+  "languages": [
+    { "language": "Arabic", "fluency": "Native" },
+    { "language": "English", "fluency": "Fluent" }
+  ]
+}

@@ -11,14 +11,22 @@ import { fileURLToPath } from 'node:url';
 
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { createServer } from 'vite';
+import { createServer, resolveConfig } from 'vite';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const indexPath = path.join(root, 'dist', 'index.html');
 const PLACEHOLDER = '<!--app-html-->';
 
+// This loader is a dev server, where vite.config.js resolves `base` to '/'.
+// Anything the components build from import.meta.env.BASE_URL — the PDF link —
+// would then be prerendered without the '/my-resume/' prefix and be dead for
+// readers that never run the hydration, which is who prerendering is for. So ask
+// for the base the production build uses rather than the one serving would.
+const { base } = await resolveConfig({ root }, 'build');
+
 const vite = await createServer({
   root,
+  base,
   logLevel: 'error',
   appType: 'custom',
   server: { middlewareMode: true },

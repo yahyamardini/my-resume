@@ -1,15 +1,14 @@
 import React from 'react';
+import resume from '../resume.json';
 
 const Programming = () => {
   return (
     <section className="programming">
       <h2>Programming Languages</h2>
       <ul>
-        <li>C</li>
-
-        <li>Python</li>
-
-        <li>Bash</li>
+        {resume.programmingLanguages.map((language) => (
+          <li key={language}>{language}</li>
+        ))}
       </ul>
     </section>
   );

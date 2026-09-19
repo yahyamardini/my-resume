@@ -1,12 +1,16 @@
 import React from 'react';
+import resume from '../resume.json';
 
 const Languages = () => {
   return (
     <section className="languages">
       <h2>Languages</h2>
       <ul>
-        <li>Arabic (Native)</li>
-        <li>English (Fluent)</li>
+        {resume.languages.map(({ language, fluency }) => (
+          <li key={language}>
+            {language} ({fluency})
+          </li>
+        ))}
       </ul>
     </section>
   );

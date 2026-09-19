@@ -1,59 +1,56 @@
 import React from 'react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import resume from '../resume.json';
+
+// resume.json carries a network name, not a component, so the icons live here.
+const NETWORK_ICONS = {
+  GitHub: FaGithub,
+  LinkedIn: FaLinkedin,
+};
+
+const LINK_STYLE = { textDecoration: 'none', color: 'inherit' };
+const ICON_STYLE = { marginRight: '8px' };
 
 const Header = () => {
+  const { name, label, summary, email, phone, location, profiles } = resume.basics;
+  const place = `${location.city}, ${location.region}`;
+
   return (
     <header className="header">
-      <h1>Yahya Mardini</h1>
-      <h2>DevOps Engineer</h2>
-      <p>
-        DevOps engineer focused on reducing toil for development and operations engineers. I
-        implement industry best practices that align with business goals. I communicate
-        technical implementations to non-technical stakeholders and translate business needs
-        into architectural decisions.
-      </p>
+      <h1>{name}</h1>
+      <h2>{label}</h2>
+      <p>{summary}</p>
       <div className="contact-info">
         <p>
           <a
-            href="https://www.google.com/maps/place/Damascus,+Syria"
+            href={`https://www.google.com/maps/place/${encodeURIComponent(place)}`}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ textDecoration: 'none', color: 'inherit' }}
+            style={LINK_STYLE}
           >
-            <FaMapMarkerAlt style={{ marginRight: '8px' }} /> Damascus, Syria
+            <FaMapMarkerAlt style={ICON_STYLE} /> {place}
           </a>{' '}
           |{' '}
-          <a
-            href="tel:+963968736154"
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            <FaPhone style={{ marginRight: '8px' }} /> +963 968 736 154
+          {/* tel: wants the digits without the spaces the JSON keeps for reading. */}
+          <a href={`tel:${phone.replace(/\s/g, '')}`} style={LINK_STYLE}>
+            <FaPhone style={ICON_STYLE} /> {phone}
           </a>{' '}
           |{' '}
-          <a
-            href="mailto:yahya199mar@gmail.com"
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            <FaEnvelope style={{ marginRight: '8px' }} /> yahya199mar@gmail.com
-          </a>{' '}
-          |{' '}
-          <a
-            href="https://github.com/yahyamardini"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            <FaGithub style={{ marginRight: '8px' }} /> GitHub
-          </a>{' '}
-          |{' '}
-          <a
-            href="https://linkedin.com/in/yahyamardini"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            <FaLinkedin style={{ marginRight: '8px' }} /> LinkedIn
+          <a href={`mailto:${email}`} style={LINK_STYLE}>
+            <FaEnvelope style={ICON_STYLE} /> {email}
           </a>
+          {profiles.map((profile) => {
+            const Icon = NETWORK_ICONS[profile.network];
+            return (
+              <React.Fragment key={profile.network}>
+                {' '}
+                |{' '}
+                <a href={profile.url} target="_blank" rel="noopener noreferrer" style={LINK_STYLE}>
+                  {Icon ? <Icon style={ICON_STYLE} /> : null} {profile.network}
+                </a>
+              </React.Fragment>
+            );
+          })}
         </p>
       </div>
     </header>

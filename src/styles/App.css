@@ -1,14 +1,71 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&family=Roboto&display=swap');
+/* Color tokens. `data-theme` on <html> carries the visitor's choice from the
+   theme toggle: absent means follow the OS, "light" and "dark" pin it. The dark
+   set is therefore written twice — once for the OS preference (skipped when
+   light is pinned) and once for an explicit pick — since CSS has no way to
+   share a declaration block between two selectors. @media print re-asserts
+   light and must stay last in the file to outrank both. */
+:root {
+  color-scheme: light dark;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --bg: #f4f4f4;
+  --card: #fff;
+  --ink: #333;
+  --muted: #555;
+  --subtle: #777;
+  --accent: #0f766e;
+  --btn-bg: #0f766e;
+  --btn-bg-hover: #115e56;
+  --btn-ink: #fff;
+  --rule: #e5e7eb;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+/* Dark, following the OS — unless the visitor pinned light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0b0f14;
+    --card: #11161d;
+    --ink: #e6e8eb;
+    --muted: #a8b1bd;
+    --subtle: #8b95a1;
+    --accent: #2dd4bf;
+    --btn-bg: #0d9488;
+    --btn-bg-hover: #0f766e;
+    --btn-ink: #fff;
+    --rule: #222a33;
+    --shadow: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Dark, pinned by the visitor whatever the OS says. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b0f14;
+  --card: #11161d;
+  --ink: #e6e8eb;
+  --muted: #a8b1bd;
+  --subtle: #8b95a1;
+  --accent: #2dd4bf;
+  --btn-bg: #0d9488;
+  --btn-bg-hover: #0f766e;
+  --btn-ink: #fff;
+  --rule: #222a33;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
 
 /* General Styles */
 body {
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: var(--bg);
+  color: var(--ink);
 }
 
 /* Layout and Container Styles */
@@ -21,8 +78,8 @@ body {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: var(--card);
+  box-shadow: 0 0 10px var(--shadow);
   flex: 1;
 }
 
@@ -35,15 +92,16 @@ body {
 .header h1 {
   margin: 0;
   font-size: 2.5em;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .header h2 {
   margin: 5px 0;
   font-size: 1.5em;
-  color: #555;
-  font-family: 'Roboto', sans-serif;
+  color: var(--muted);
+  font-weight: 400;
 }
 
 /* Section Styles */
@@ -52,10 +110,11 @@ section {
 }
 
 section h2 {
-  border-bottom: 2px solid #0073b1;
+  border-bottom: 2px solid var(--accent);
   padding-bottom: 5px;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  font-size: 1.15em;
+  letter-spacing: -0.01em;
   margin-bottom: 15px;
 }
 
@@ -65,8 +124,9 @@ section h2 {
 }
 
 .date {
-  color: #777;
-  font-size: 0.9em;
+  color: var(--subtle);
+  font-family: var(--font-mono);
+  font-size: 0.82em;
   margin-bottom: 10px;
 }
 
@@ -93,14 +153,65 @@ ul li {
   opacity: 0.7;
 }
 
-/* Download Button Styles */
-.download-btn {
+/* Toolbar Styles */
+.toolbar {
   position: fixed;
-  right: 20px;
   top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.theme-toggle {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--card);
+}
+
+.theme-toggle button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: none;
+  color: var(--subtle);
+  cursor: pointer;
+  font-size: 0.85em;
+  line-height: 1;
+}
+
+.theme-toggle button:hover {
+  color: var(--ink);
+}
+
+.theme-toggle button.is-active {
+  background: var(--accent);
+  color: var(--btn-ink);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.pdf-link {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  text-decoration: none;
+  background-color: var(--btn-bg);
+  color: var(--btn-ink);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -108,43 +219,150 @@ ul li {
   align-items: center;
 }
 
-.download-btn:hover {
-  background-color: #0056b3;
+.pdf-link:hover {
+  background-color: var(--btn-bg-hover);
 }
 
-/* Print Styles */
+/* The resume is 800px wide and centred, so a floating toolbar only has room
+   once the viewport is wide enough to leave a gutter beside it. Below that it
+   joins the flow above the resume rather than covering the text. */
+@media (max-width: 1120px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .toolbar {
+    position: static;
+    order: -1;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 16px 16px 0;
+  }
+}
+
+/* Print Styles. Also what "Save as PDF" goes through, so page breaks are
+   decided here rather than by a canvas slicing the page at fixed heights. */
 @media print {
-  body {
-    background: #fff;
-    color: #000;
+  /* Always light. Matching [data-theme] as well keeps this ahead of an
+     explicit dark pick, which is a more specific selector than :root alone. */
+  :root,
+  :root[data-theme] {
+    color-scheme: light;
+    --bg: #fff;
+    --card: #fff;
+    --ink: #000;
+    --muted: #333;
+    --subtle: #444;
+    --rule: #ccc;
+    --shadow: transparent;
+  }
+
+  @page {
+    size: A4;
+    margin: 14mm;
   }
 
   .resume-container {
     box-shadow: none;
     margin: 0;
     padding: 0;
+    max-width: none;
   }
 
-  .download-btn {
-    display: none; /* Hide the download button in the PDF */
+  .toolbar {
+    display: none; /* Screen-only controls */
+  }
+
+  /* Fragmentation is only well supported in block layout; .app-container is a
+     flex container on screen. */
+  .app-container {
+    display: block;
+  }
+
+  /* Tighter rhythm on paper. The screen's spacing alone runs this onto a
+     second page. */
+  body {
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  .header h1 {
+    font-size: 2em;
+  }
+
+  .header h2 {
+    font-size: 1.15em;
+  }
+
+  section {
+    margin-bottom: 14px;
+  }
+
+  section h2 {
+    font-size: 1.05em;
+    margin-bottom: 8px;
+  }
+
+  .job {
+    margin-bottom: 12px;
+  }
+
+  .date {
+    margin-bottom: 6px;
+  }
+
+  ul {
+    margin-top: 6px;
+  }
+
+  ul li {
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  /* Keep a block whole — but only blocks small enough to move for free.
+     Deliberately NOT `section`: Experience is tall, so making it atomic meant
+     it could not fit what was left of page one and jumped to page two,
+     stranding the summary alone on a mostly empty page. Experience breaks
+     between its jobs instead. */
+  .skills,
+  .programming,
+  .languages,
+  .job,
+  li {
+    break-inside: avoid;
+  }
+
+  /* Never leave a heading stranded at the foot of a page. */
+  section h2,
+  .job h3,
+  .date {
+    break-after: avoid;
+  }
+
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
   }
 
   a {
     text-decoration: none;
-    color: #000;
+    color: var(--ink);
   }
 }
 
 /* Project Link Styles */
 .project-link {
-  color: #0073b1; /* Change to your preferred color */
+  color: var(--accent);
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .project-link:hover {
-  color: #0056b3; /* Darker shade for hover */
+  color: var(--btn-bg-hover);
   text-decoration: underline;
 }
 
