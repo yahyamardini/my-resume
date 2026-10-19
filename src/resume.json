@@ -22,12 +22,13 @@
       "endDate": "Present",
       "highlights": [
         "Migrated legacy telecom systems to cloud-native solutions in multi-region Kubernetes clusters.",
-        "Designed and implemented a staging environment to test rollouts, making production deployments safer.",
-        "Built a benchmarking environment to continuously test system performance.",
         "Architected CI/CD pipelines (GitLab CI/CD, Argo CD) that shortened the time from commit to production.",
-        "Introduced a development environment to unify dev workflows and reduce the time it takes to onboard new engineers.",
-        "Integrated modern observability solutions (ELK stack, Prometheus, Grafana, kube-state-metrics) to improve visibility into the system.",
+        "Designed and implemented a staging environment to test rollouts, making production deployments safer.",
         "Evaluated production Kubernetes cluster robustness by simulating failure scenarios to verify compliance with customer SLAs.",
+        "Refactored configuration management in a core application to eliminate hardcoded secrets and values, and integrated HashiCorp Vault with AppRole auth through the Terraform Vault provider.",
+        "Integrated modern observability solutions (ELK stack, Prometheus, Grafana, kube-state-metrics) to improve visibility into the system.",
+        "Built a benchmarking environment to continuously test system performance.",
+        "Introduced a development environment to unify dev workflows and reduce the time it takes to onboard new engineers.",
         "Adopted agentgateway to centralize interaction between AI agents and MCP servers."
       ]
     }
